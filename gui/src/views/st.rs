@@ -8,7 +8,23 @@ use crate::{
     views::{read_object, read_pointer_object},
 };
 
+const DATA_027E09A4_ADDRESS: u32 = 0x027e09a4;
+const DATA_027E09A8_ADDRESS: u32 = 0x027e09a8;
+const DATA_027E09B8_ADDRESS: u32 = 0x027e09b8;
+const DATA_027E09BC_ADDRESS: u32 = 0x027e09bc;
+const DATA_027E0CD8_ADDRESS: u32 = 0x027e0cd8;
+const DATA_027E0CE0_ADDRESS: u32 = 0x027e0ce0;
 const ACTOR_MANAGER_ADDRESS: u32 = 0x027e0ce4;
+const DATA_027E0CE8_ADDRESS: u32 = 0x027e0ce8;
+const DATA_027E0CEC_ADDRESS: u32 = 0x027e0cec;
+const OVERLAY_MANAGER_ADDRESS: u32 = 0x02043e50;
+const DATA_OV000_020B34C4_ADDRESS: u32 = 0x020b34c4;
+const DATA_OV000_020B504C_ADDRESS: u32 = 0x020b504c;
+const DATA_OV000_020B51B8_ADDRESS: u32 = 0x020b51b8;
+const DATA_OV000_020B51C0_ADDRESS: u32 = 0x020b51c0;
+const DATA_OV000_020B539C_ADDRESS: u32 = 0x020b539c;
+const TREASURE_MANAGER_ADDRESS: u32 = 0x020b6510;
+const DATA_OV024_020D8698_ADDRESS: u32 = 0x020d8698;
 
 pub struct View {
     client: Client,
@@ -31,13 +47,118 @@ impl Default for Windows {
         Self {
             actor_manager: ActorManagerWindow::default(),
             basic_windows: vec![
-                // BasicWindow {
-                //     open: false,
-                //     title: "Item manager",
-                //     type_name: "ItemManager",
-                //     address: ITEM_MANAGER_ADDRESS,
-                //     pointer: true,
-                // }
+                BasicWindow {
+                    open: false,
+                    title: "data_027e09a4",
+                    type_name: "UnkStruct_027e09a4",
+                    address: DATA_027E09A4_ADDRESS,
+                    pointer: true,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_027e09a8",
+                    type_name: "UnkStruct_027e09a8",
+                    address: DATA_027E09A8_ADDRESS,
+                    pointer: true,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_027e09b8",
+                    type_name: "UnkStruct_027e09b8",
+                    address: DATA_027E09B8_ADDRESS,
+                    pointer: true,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_027e09bc",
+                    type_name: "UnkStruct_027e09bc",
+                    address: DATA_027E09BC_ADDRESS,
+                    pointer: true,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_027e0cd8",
+                    type_name: "UnkStruct_027e0cd8",
+                    address: DATA_027E0CD8_ADDRESS,
+                    pointer: true,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_027e0ce0",
+                    type_name: "UnkStruct_027e0ce0",
+                    address: DATA_027E0CE0_ADDRESS,
+                    pointer: true,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_027e0ce8",
+                    type_name: "UnkStruct_027e0ce8",
+                    address: DATA_027E0CE8_ADDRESS,
+                    pointer: true,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_027e0cec",
+                    type_name: "UnkStruct_027e0cec",
+                    address: DATA_027E0CEC_ADDRESS,
+                    pointer: true,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "Overlay Manager",
+                    type_name: "OverlayManager",
+                    address: OVERLAY_MANAGER_ADDRESS,
+                    pointer: false,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_ov000_020b34c4",
+                    type_name: "UnkStruct_ov000_020b34c4",
+                    address: DATA_OV000_020B34C4_ADDRESS,
+                    pointer: false,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_ov000_020b504c",
+                    type_name: "UnkStruct_ov000_02067bc4",
+                    address: DATA_OV000_020B504C_ADDRESS,
+                    pointer: false,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_ov000_020b51b8",
+                    type_name: "UnkStruct_ov000_020b51b8",
+                    address: DATA_OV000_020B51B8_ADDRESS,
+                    pointer: false,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_ov000_020b51c0",
+                    type_name: "UnkStruct_ov000_020b51c0",
+                    address: DATA_OV000_020B51C0_ADDRESS,
+                    pointer: false,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_ov000_020b539c",
+                    type_name: "UnkStruct_ov000_020b539c",
+                    address: DATA_OV000_020B539C_ADDRESS,
+                    pointer: false,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "Treasure Manager",
+                    type_name: "TreasureManager",
+                    address: TREASURE_MANAGER_ADDRESS,
+                    pointer: true,
+                },
+                BasicWindow {
+                    open: false,
+                    title: "data_ov024_020d8698",
+                    type_name: "UnkStruct_020d8698",
+                    address: DATA_OV024_020D8698_ADDRESS,
+                    pointer: true,
+                }
             ],
         }
     }
