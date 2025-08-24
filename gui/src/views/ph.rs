@@ -7,7 +7,6 @@ use eframe::egui::{self};
 use crate::{
     client::{Client, Command},
     config::Config,
-    ui::type_decl::AsDataWidget,
     util::read::{TypeInstance, TypeInstanceOptions},
     views::{read_object, read_pointer_object},
 };
@@ -203,6 +202,9 @@ impl super::View for View {
     }
 
     fn exit(&mut self) -> Result<()> {
+        if !self.client.is_running() {
+            return Ok(());
+        }
         self.client.send_command(Command::Disconnect)?;
         self.client.join_update_thread();
         Ok(())
@@ -226,7 +228,7 @@ impl PlayerPosWindow {
                         return;
                     }
                 };
-                player_pos.as_data_widget(ui, types).render_compound(ui, types, state);
+                player_pos.into_data_widget(ui, types).render_compound(ui, types, state);
             });
         });
         self.open = open;
@@ -256,7 +258,7 @@ impl ActorManagerWindow {
                     }
                 };
 
-                instance.as_data_widget(ui, types).render_compound(ui, types, state);
+                instance.into_data_widget(ui, types).render_compound(ui, types, state);
             });
         });
         self.open = open;
@@ -453,7 +455,7 @@ impl ActorWindow {
                         bit_field_range: None,
                         data: Cow::Owned(actor_data.to_vec()),
                     });
-                    actor_type.as_data_widget(ui, types, actor).render_compound(ui, types, state);
+                    actor.into_data_widget(ui, types).render_compound(ui, types, state);
                 });
             });
         open
@@ -487,7 +489,7 @@ impl BasicWindow {
                         return;
                     }
                 };
-                instance.as_data_widget(ui, types).render_compound(ui, types, state);
+                instance.into_data_widget(ui, types).render_compound(ui, types, state);
             });
         });
         self.open = open;
